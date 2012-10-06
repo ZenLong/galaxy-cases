@@ -1,24 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<version>1.0</version>
-	<packaging>war</packaging>
-	<organization>
-		<name>SaySth</name>
-		<url>www.saysth.com</url>
-	</organization>
-	<!--
-	<parent>
-		<groupId>com.saysth</groupId>
-		<artifactId>galaxy-parent</artifactId>
-		<version>1.0.0</version>
-	</parent>
-	-->
 	<parent>
 		<groupId>com.saysth.galaxy</groupId>
 		<artifactId>galaxy-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
+	<artifactId>galaxy-cases</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<name>galaxy-cases</name>
+	<organization>
+		<name>SaySth</name>
+		<url>www.saysth.com</url>
+	</organization>
 
 	<!-- 项目属性 -->
 	<properties>
@@ -28,105 +23,49 @@
 		<exclude-files>WEB-INF/web.xml</exclude-files>
 	</properties>
 
-	<!-- 设定除中央仓库(repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查找. -->
-	<repositories>
-		<!-- -->
-		<repository>
-			<id>releases</id>
-			<name>local nexus releases</name>
-			<url>
-			http://192.168.0.216:8081/nexus/content/repositories/releases
-			</url>
-		</repository>
-		<repository>
-			<id>snapshots</id>
-			<name>local nexus snapshots</name>
-			<url>http://192.168.0.216:8081/nexus/content/repositories/snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<!-- -->
-		<repository>
-			<id>offical</id>
-			<name>Maven Official Repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>jboss</id>
-			<name>Jboss Repository</name>
-			<url>http://repository.jboss.org/nexus/content/groups/public-jboss</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>java.net</id>
-			<name>Java.net Repository</name>
-			<url>http://download.java.net/maven/2/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>terracotta-releases</id>
-			<url>http://www.terracotta.org/download/reflector/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>cedarsoft-thirdparty</id>
-			<url>http://maven.cedarsoft.com/content/repositories/thirdparty</url>
-		</repository>
-		<repository>
-			<id>opensesame</id>
-			<name>Alibaba OpenSource Repsoitory</name>
-			<url>http://code.alibabatech.com/mvn/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>cloudhopper</id>
-			<name>cloudhopper third-party</name>
-			<url>http://maven.cloudhopper.com/repos/third-party</url>
-		</repository>
-		<repository>
-			<id>spy</id>
-			<name>Spy Repository</name>
-			<layout>default</layout>
-			<url>http://files.couchbase.com/maven2</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>jasig-repository</id>
-			<name>JA-SIG Maven2 Repository</name>
-			<url>https://oss.sonatype.org/content/repositories/releases</url>
-		</repository>
-		<repository>
-			<id>morphia</id>
-			<name>morphia</name>
-			<url>http://morphia.googlecode.com/svn/mavenrepo</url>
-		</repository>
-		<repository>
-			<id>spring-milestone</id>
-			<name>Spring Maven MILESTONE Repository</name>
-			<url>http://repo.springsource.org/libs-milestone</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-	</pluginRepositories>
-
-	<!-- 依赖项 -->
+	<!-- 依赖项定义 -->
+	<dependencies>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.morphia</groupId>
+			<artifactId>morphia</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.saysth.galaxy</groupId>
+			<artifactId>galaxy-commons</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<resources>
@@ -238,38 +177,4 @@
 		</profile>
 	</profiles>
 
-	<artifactId>galaxy-cases</artifactId>
-	<dependencies>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.0.2.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>com.saysth.galaxy</groupId>
-			<artifactId>galaxy-commons</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-	</dependencies>
 </project>
